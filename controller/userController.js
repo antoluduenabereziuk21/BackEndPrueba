@@ -1,22 +1,22 @@
-const usersServices = require('../common/usersServices');
+const usersServices = require('../services/usersServices');
 const exceptions =require('../common/exceptions');
-const error = require('../common/errors');
+const error = require('../common/error');
 
 const getAll = async (req,res)=>{
     const query = req.query
     console.log("get all controller - query : "+JSON.stringify(query))
-    if(!req.query.estado){
+    if(!req.query.estated){
         throw new error.AppError(exceptions.exceptionType.productos.badRequest,"debe colocar un estado")
     }
     const filter = {
-        estaded: req.query.estaded,
+        estated: req.query.estated,
     }
     if(req.query.username){
         filter.username = req.query.username
     }
     //llamar al servicio de productos
-    const users= await usersServices.getAllService(filter)
-    res.status(200).json(users)
+    const usuarios= await usersServices.getAllService(filter)
+    res.status(200).json(usuarios)
 }
 
 const getById = async (req,res)=>{
