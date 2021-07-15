@@ -23,13 +23,13 @@ const getAllService = async({username,estated})=>{
 
 const getById = async (id) =>{
     console.log("getById -id: " + id);
-    const user = await userModel.findByPk(id);
-    if(!user){
+    const usuario = await userModel.findById(id);
+    if(!usuario){
         throw new error.AppError(exceptions.exceptionType.productos.notFound)
     }
 
-    console.log("user return :" + user)
-    return user;
+    console.log("user return :" + usuario)
+    return usuario;
 }
 
 const create = async (data) =>{

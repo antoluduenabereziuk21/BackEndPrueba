@@ -1,18 +1,18 @@
 users = [
     {
-        id:1,
+        id:'1',
         estated:'ACTIVO',
         username:'antonio',
         name:'antonio',
     },
     {
-        id:2,
+        id:'2',
         estated:'ACTIVO',
         username:'guido',
         name:'guido',
     },
     {
-        id:3,
+        id:'3',
         estated:'INACTIVO',
         username:'tomas',
         name:'tomas',
@@ -21,7 +21,7 @@ users = [
 
 const findById = (id) =>{
     let user
-    user= users.find(user => {user.id === id});
+    user= users.find(user => { return user.id === id});
     console.log(user);
     return user;
 }
