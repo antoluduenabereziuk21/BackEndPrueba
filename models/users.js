@@ -1,3 +1,5 @@
+//base de datos local temporal
+
 users = [
     {
         id:'1',
@@ -25,7 +27,7 @@ const findById = (id) =>{
     console.log(user);
     return user;
 }
-
+//metodo para traer todos los usuarios
 const find = ({username,estated}) =>{
     let usuarios
     if (estated){
