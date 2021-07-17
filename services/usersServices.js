@@ -1,7 +1,8 @@
-const userModel = require('../models/users');
+const userModel = require('../models/usersModel');
 const error = require('../common/error');
 const exceptions = require('../common/exceptions');
 
+//el comunicador entre el controlador y la base de datos
 
 const getAllService = async({username,estated})=>{
 
@@ -16,14 +17,14 @@ const getAllService = async({username,estated})=>{
 
     // const usuarios = await userModel.find({atributes:['username','estated'],
     // where:where});
-    const usuarios = await userModel.find({username,estated})
+    const usuarios = await usersModel.findAll({username,estated})
     console.log(" usuarios return :" + usuarios)
     return usuarios;
 }
 
 const getById = async (id) =>{
     console.log("getById -id: " + id);
-    const usuario = await userModel.findById(id);
+    const usuario = await usersModel.findByPk(id);
     if(!usuario){
         throw new error.AppError(exceptions.exceptionType.productos.notFound)
     }

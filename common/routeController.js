@@ -1,3 +1,5 @@
+//manejo de todas las rutas
+
 const error = require('./error');
 async function handleRequest(req, res,methodController,next){
     try{

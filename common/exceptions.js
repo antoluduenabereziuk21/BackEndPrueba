@@ -1,3 +1,5 @@
+//manejo de errores propios 
+
 const exceptionType = {
     unhandledException:{
         code: 200,

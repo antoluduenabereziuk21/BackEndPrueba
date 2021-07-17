@@ -4,6 +4,8 @@ const router =  express.Router();
 const routeController = require('../common/routeController');
 const userController = require('../controller/userController');
 
+//las rutas del usuario
+
 router.get('/', (req, res) =>{
     routeController.handleRequest(req, res,userController.getAll)
 })

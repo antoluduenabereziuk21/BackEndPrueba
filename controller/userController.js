@@ -1,13 +1,13 @@
 const usersServices = require('../services/usersServices');
 const exceptions =require('../common/exceptions');
 const error = require('../common/error');
-
+//los metodos de usuarios 
 const getAll = async (req,res)=>{
     const query = req.query
     console.log("get all controller - query : "+JSON.stringify(query))
-    if(!req.query.estated){
-        throw new error.AppError(exceptions.exceptionType.productos.badRequest,"debe colocar un estado")
-    }
+    // if(!req.query.user){
+    //     throw new error.AppError(exceptions.exceptionType.productos.badRequest,"debe colocar un estado")
+    // }
     const filter = {
         estated: req.query.estated,
     }
