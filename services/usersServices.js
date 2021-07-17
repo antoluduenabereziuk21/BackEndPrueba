@@ -1,24 +1,24 @@
-const userModel = require('../models/usersModel');
+const userModel = require('../models/userModel');
 const error = require('../common/error');
 const exceptions = require('../common/exceptions');
 
 //el comunicador entre el controlador y la base de datos
 
-const getAllService = async({username,estated})=>{
+const getAllService = async({condition,email})=>{
 
-    console.log("getAllService - username"+username +"  estated: " + estated)
-    // const where = {}
-    // if (estated){
-    //     where.estated = estated; 
-    // }
-    // if (username){
-    //     where.username = username;
-    // }
+    console.log("getAllService - condition : "+condition +"  email: " + email)
+    const where = {}
+    if (condition){
+        where. condition =  condition; 
+    }
+    if (email){
+        where.email = email;
+    }
 
-    // const usuarios = await userModel.find({atributes:['username','estated'],
-    // where:where});
-    const usuarios = await usersModel.findAll({username,estated})
-    console.log(" usuarios return :" + usuarios)
+    const usuarios = await userModel.findAll({atributes:[' condition','email'],
+    where:where});
+    // const usuarios = await userModel.findAll({condition,email})
+    console.log(" usuarios return :" + json.usuarios)
     return usuarios;
 }
 

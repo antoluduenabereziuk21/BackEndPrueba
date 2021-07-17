@@ -5,11 +5,11 @@ const error = require('../common/error');
 const getAll = async (req,res)=>{
     const query = req.query
     console.log("get all controller - query : "+JSON.stringify(query))
-    // if(!req.query.user){
-    //     throw new error.AppError(exceptions.exceptionType.productos.badRequest,"debe colocar un estado")
-    // }
+    if(!req.query.condition){
+        throw new error.AppError(exceptions.exceptionType.productos.badRequest,"debe colocar un estado 0 ó 1")
+    }
     const filter = {
-        estated: req.query.estated,
+        condition: req.query.condition,
     }
     if(req.query.username){
         filter.username = req.query.username
