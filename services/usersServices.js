@@ -18,13 +18,13 @@ const getAllService = async({condition,email})=>{
     const usuarios = await userModel.findAll({atributes:[' condition','email'],
     where:where});
     // const usuarios = await userModel.findAll({condition,email})
-    console.log(" usuarios return :" + json.usuarios)
+    console.log(" usuarios return :" +usuarios)
     return usuarios;
 }
 
 const getById = async (id) =>{
     console.log("getById -id: " + id);
-    const usuario = await usersModel.findByPk(id);
+    const usuario = await userModel.findByPk(id);
     if(!usuario){
         throw new error.AppError(exceptions.exceptionType.productos.notFound)
     }
@@ -34,21 +34,25 @@ const getById = async (id) =>{
 }
 
 const create = async (data) =>{
-    const {estated,username,name} = data;
-    console.log("Create User :"+ JSON.stringify({estated,username,name}));
+    const {user_name,name,last_name,country,city,email,condition} = data;
+    console.log("Create User :"+ JSON.stringify({user_name,name,last_name,country,city,email,condition}));
     const user = await userModel.create({
-        estated,
-        username,
-        name
+        user_name,
+        name,
+        last_name,
+        country,
+        city,
+        email,
+        condition
     })
 
     return user.id;
 }
 
 const update = async (id,data) =>{
-    const {estated,username,name} = data
-    console.log("actualizar produucto"+JSON.stringify({estated,username,name}));
-    const user = await userModel.update({estated},{
+    const {user_name,name,last_name,country,city,email,condition} = data;
+    console.log("actualizar produucto"+JSON.stringify({user_name,name,last_name,country,city,email,conditio}));
+    const user = await userModel.update({condition},{
         where: {
             id
         }
