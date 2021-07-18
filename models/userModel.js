@@ -10,7 +10,7 @@ const  UserModel = sequelizeConnection.define(
         primaryKey:true,
         autoIncrement:true,
     },
-    user_name: {
+    userName: {
         type:Sequelize.STRING,
         allowNull:false,
         fields:'user_name'
@@ -20,7 +20,7 @@ const  UserModel = sequelizeConnection.define(
         allowNull:false,
         fields:'name'
     },
-    last_name: {
+    lastName: {
         type:Sequelize.STRING,
         allowNull:false,
         fields:'last_name'

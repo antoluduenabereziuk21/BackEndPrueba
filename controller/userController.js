@@ -21,9 +21,9 @@ const getAll = async (req,res)=>{
 
 const getById = async (req,res)=>{
     const params = req.params
-    console.log("get all controller - params : "+JSON.stringify(params))
+    console.log("getById controller - params : "+JSON.stringify(params))
     const id = params.id
-    //llamar al servicio de productos
+    //llamar al servicio de usuarios
     const usuarios = await usersServices.getById(id)
     res.status(200).json(usuarios)
 }

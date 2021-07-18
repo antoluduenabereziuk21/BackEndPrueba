@@ -34,19 +34,20 @@ const getById = async (id) =>{
 }
 
 const create = async (data) =>{
-    const {user_name,name,last_name,country,city,email,condition} = data;
-    console.log("Create User :"+ JSON.stringify({user_name,name,last_name,country,city,email,condition}));
-    const user = await userModel.create({
-        user_name,
+    const {userName,name,lastName,country,city,email,condition} = data
+    console.log("Create User :"+ JSON.stringify({userName,name,lastName,country,city,email,condition}));
+    const usuario = await userModel.create({
+        
+        userName,
         name,
-        last_name,
+        lastName,
         country,
         city,
         email,
         condition
     })
 
-    return user.id;
+    return usuario.id;
 }
 
 const update = async (id,data) =>{
