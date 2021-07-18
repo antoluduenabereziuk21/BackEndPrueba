@@ -1,30 +1,30 @@
-const userModel = require('../models/usersModel');
+const userModel = require('../models/userModel');
 const error = require('../common/error');
 const exceptions = require('../common/exceptions');
 
 //el comunicador entre el controlador y la base de datos
 
-const getAllService = async({username,estated})=>{
+const getAllService = async({condition,email})=>{
 
-    console.log("getAllService - username"+username +"  estated: " + estated)
-    // const where = {}
-    // if (estated){
-    //     where.estated = estated; 
-    // }
-    // if (username){
-    //     where.username = username;
-    // }
+    console.log("getAllService - condition : "+condition +"  email: " + email)
+    const where = {}
+    if (condition){
+        where. condition =  condition; 
+    }
+    if (email){
+        where.email = email;
+    }
 
-    // const usuarios = await userModel.find({atributes:['username','estated'],
-    // where:where});
-    const usuarios = await usersModel.findAll({username,estated})
-    console.log(" usuarios return :" + usuarios)
+    const usuarios = await userModel.findAll({atributes:[' condition','email'],
+    where:where});
+    // const usuarios = await userModel.findAll({condition,email})
+    console.log(" usuarios return :" +usuarios)
     return usuarios;
 }
 
 const getById = async (id) =>{
     console.log("getById -id: " + id);
-    const usuario = await usersModel.findByPk(id);
+    const usuario = await userModel.findByPk(id);
     if(!usuario){
         throw new error.AppError(exceptions.exceptionType.productos.notFound)
     }
@@ -34,21 +34,26 @@ const getById = async (id) =>{
 }
 
 const create = async (data) =>{
-    const {estated,username,name} = data;
-    console.log("Create User :"+ JSON.stringify({estated,username,name}));
-    const user = await userModel.create({
-        estated,
-        username,
-        name
+    const {userName,name,lastName,country,city,email,condition} = data
+    console.log("Create User :"+ JSON.stringify({userName,name,lastName,country,city,email,condition}));
+    const usuario = await userModel.create({
+        
+        userName,
+        name,
+        lastName,
+        country,
+        city,
+        email,
+        condition
     })
 
-    return user.id;
+    return usuario.id;
 }
 
 const update = async (id,data) =>{
-    const {estated,username,name} = data
-    console.log("actualizar produucto"+JSON.stringify({estated,username,name}));
-    const user = await userModel.update({estated},{
+    const {user_name,name,last_name,country,city,email,condition} = data;
+    console.log("actualizar produucto"+JSON.stringify({user_name,name,last_name,country,city,email,conditio}));
+    const user = await userModel.update({condition},{
         where: {
             id
         }

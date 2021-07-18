@@ -5,11 +5,11 @@ const error = require('../common/error');
 const getAll = async (req,res)=>{
     const query = req.query
     console.log("get all controller - query : "+JSON.stringify(query))
-    // if(!req.query.user){
-    //     throw new error.AppError(exceptions.exceptionType.productos.badRequest,"debe colocar un estado")
-    // }
+    if(!req.query.condition){
+        throw new error.AppError(exceptions.exceptionType.productos.badRequest,"debe colocar un estado 0 ó 1")
+    }
     const filter = {
-        estated: req.query.estated,
+        condition: req.query.condition,
     }
     if(req.query.username){
         filter.username = req.query.username
@@ -21,9 +21,9 @@ const getAll = async (req,res)=>{
 
 const getById = async (req,res)=>{
     const params = req.params
-    console.log("get all controller - params : "+JSON.stringify(params))
+    console.log("getById controller - params : "+JSON.stringify(params))
     const id = params.id
-    //llamar al servicio de productos
+    //llamar al servicio de usuarios
     const usuarios = await usersServices.getById(id)
     res.status(200).json(usuarios)
 }
