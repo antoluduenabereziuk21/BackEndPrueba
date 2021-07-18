@@ -33,22 +33,22 @@ const getById = async (id) =>{
     return usuario;
 }
 
-const create = async (data) =>{
-    const {userName,name,lastName,country,city,email,condition} = data
-    console.log("Create User :"+ JSON.stringify({userName,name,lastName,country,city,email,condition}));
-    const usuario = await userModel.create({
+// const create = async (data) =>{
+//     const {userName,name,lastName,country,city,email,condition} = data
+//     console.log("Create User :"+ JSON.stringify({userName,name,lastName,country,city,email,condition}));
+//     const usuario = await userModel.create({
         
-        userName,
-        name,
-        lastName,
-        country,
-        city,
-        email,
-        condition
-    })
+//         userName,
+//         name,
+//         lastName,
+//         country,
+//         city,
+//         email,
+//         condition
+//     })
 
-    return usuario.id;
-}
+//     return usuario.id;
+// }
 
 const update = async (id,data) =>{
     const {user_name,name,last_name,country,city,email,condition} = data;
@@ -68,6 +68,6 @@ const update = async (id,data) =>{
 module.exports = {
     getAllService,
     getById,
-    create,
+    // create,
     update
 }
