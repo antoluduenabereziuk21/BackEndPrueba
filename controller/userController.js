@@ -45,9 +45,18 @@ const updated = async (req,res)=>{
     res.status(200).json({actualizado})
 }
 
+const deleted = async (req,res)=>{
+    const params = req.params
+    console.log("Deleted controller - params : "+JSON.stringify(params))
+    const id = params.id
+    //llamar al servicio de usuarios
+    const usuarios = await usersServices.deleted(id)
+    res.status(200).json({usuarios}) 
+}
 module.exports = {
     getAll,
     getById,
     create,
-    updated
+    updated,
+    deleted
 }

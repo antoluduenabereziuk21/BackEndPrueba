@@ -47,7 +47,7 @@ const create = async (data) =>{
         condition
     })
 
-    return usuario.id;
+    return usuario.id_user;
 }
 
 const updated = async (id,data) =>{
@@ -61,8 +61,26 @@ const updated = async (id,data) =>{
     if (!user){
         return false
     }
-    console.log("User actaulizado "+user);
+
     return true
+}
+
+const deleted= async (id) =>{
+    console.log("Deleted -id: " + id);
+    const id_user = id
+    const usuario = await userModel.destroy(
+        {
+            where:{
+                id_user:id_user
+            }
+        }
+    )
+    if(!usuario){
+        throw new error.AppError(exceptions.exceptionType.productos.notFound)
+    }
+
+    console.log("deleted return :" + id_user)
+    return "user deleted :"+id_user;
 }
 
 
@@ -70,5 +88,6 @@ module.exports = {
     getAllService,
     getById,
     create,
-    updated
+    updated,
+    deleted
 }
