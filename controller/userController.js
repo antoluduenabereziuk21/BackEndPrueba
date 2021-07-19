@@ -35,13 +35,13 @@ const create = async (req,res)=>{
     res.status(201).json({userId})
 }
 
-const actualizar = async (req,res)=>{
+const updated = async (req,res)=>{
     const data = req.body
     const params = req.params
     console.log("actualizar controller - params : "+JSON.stringify(params))
     const id = params.id
     console.log("actualizar controller - body : "+JSON.stringify(data))
-    const actualizado = await usersServices.actualizar(id,data)
+    const actualizado = await usersServices.updated(id,data)
     res.status(200).json({actualizado})
 }
 
@@ -49,5 +49,5 @@ module.exports = {
     getAll,
     getById,
     create,
-    actualizar
+    updated
 }

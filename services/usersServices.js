@@ -33,34 +33,35 @@ const getById = async (id) =>{
     return usuario;
 }
 
-// const create = async (data) =>{
-//     const {userName,name,lastName,country,city,email,condition} = data
-//     console.log("Create User :"+ JSON.stringify({userName,name,lastName,country,city,email,condition}));
-//     const usuario = await userModel.create({
+const create = async (data) =>{
+    const {user_name,name,last_name,country,city,email,condition} = data
+    console.log("Create User :"+ JSON.stringify({user_name,name,last_name,country,city,email,condition}));
+    const usuario = await userModel.create({
         
-//         userName,
-//         name,
-//         lastName,
-//         country,
-//         city,
-//         email,
-//         condition
-//     })
+        user_name,
+        name,
+        last_name,
+        country,
+        city,
+        email,
+        condition
+    })
 
-//     return usuario.id;
-// }
+    return usuario.id;
+}
 
-const update = async (id,data) =>{
+const updated = async (id,data) =>{
     const {user_name,name,last_name,country,city,email,condition} = data;
-    console.log("actualizar produucto"+JSON.stringify({user_name,name,last_name,country,city,email,conditio}));
+    console.log("actualizar produucto"+JSON.stringify({user_name,name,last_name,country,city,email,condition}));
     const user = await userModel.update({condition},{
         where: {
-            id
+            id_user: id
         }
     });
     if (!user){
         return false
     }
+    console.log("User actaulizado "+user);
     return true
 }
 
@@ -68,6 +69,6 @@ const update = async (id,data) =>{
 module.exports = {
     getAllService,
     getById,
-    // create,
-    update
+    create,
+    updated
 }

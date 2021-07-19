@@ -15,5 +15,8 @@ router.get('/:id', (req, res) =>{
 router.post('/', (req, res) =>{
     routeController.handleRequest(req, res,userController.create)
 })
+router.patch('/:id', (req, res) =>{
+    routeController.handleRequest(req, res,userController.updated)
+})
 
 module.exports = router;

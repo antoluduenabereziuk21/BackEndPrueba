@@ -6,17 +6,17 @@ const router = express.Router();
 const port = 3000;
 
 
-
-app.use("/users",require("./routes/usersRoutes") )
-// add router in the Express app.
-app.use("/",router)
-
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false}))
 
 app.use(bodyParser.json())
 
+app.use("/users",require("./routes/usersRoutes") )
+
+// add router in the Express app.
+app.use("/",router)
+
 app.listen(port,()=>{
-    console.log(`Example app listen at http:localhost:${port}`);
+console.log(`App listen at http:localhost:${port}`);
 })
 
 // router.get('/handle',(request, response)=>{
