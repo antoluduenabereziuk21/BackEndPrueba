@@ -15,6 +15,10 @@ const  UserModel = sequelizeConnection.define(
         allowNull: false,
         fields: 'user_name'
     },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
     name: {
         type: Sequelize.STRING,
         allowNull:  false,
@@ -44,11 +48,19 @@ const  UserModel = sequelizeConnection.define(
         type:Sequelize.STRING,
         allowNull: false,
         fields: 'condition'
-    }   
+    },
+    createdAt: {
+        type: Sequelize.DATE,
+        field: 'created_at'
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        field: 'updated_at'
+      }
 },
 {
     tableName:'users',
-    timestamps: false
+    timestamps: true
 }
 )
 
