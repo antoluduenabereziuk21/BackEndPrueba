@@ -8,7 +8,7 @@ router.post('/singin', (req, res) => {
 })
 
 router.post('/singup', (req, res) => {
-  routeController.handleRequest(req, res, UserController.createUser)
+  routeController.handleRequest(req, res, UserController.create)
 })
 
 
