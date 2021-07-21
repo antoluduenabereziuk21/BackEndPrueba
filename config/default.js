@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 module.exports ={
+    //ApiPrefix:'/api/v1',
     mysql:{
         host: 'localhost',
         port: 3306,
@@ -10,6 +11,6 @@ module.exports ={
     },
     auth:{
         secret:process.env.SECRET_KEY,
-        tokenExpiry: process.env.EXPIRE_TOKEN,
+        tokenExpire: process.env.EXPIRE_TOKEN,
     }
 }

@@ -13,8 +13,8 @@ const createStrategy = () =>{
     return new JwtStrategy(jwtOptions,(req,tokenPayload,next)=>{
         try{
             const user = {}
-            user.id_user = tokenPayload.id
-            user.user_name = tokenPayload.userName
+            user.id_user = tokenPayload.id_user
+            user.user_name = tokenPayload.user_name
             if(!user){
                 return next(null,false)
             }

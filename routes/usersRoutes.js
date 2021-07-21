@@ -12,9 +12,9 @@ router.get('/', (req, res) =>{
 router.get('/:id', (req, res) =>{
     routeController.handleRequest(req, res,userController.getById)
 })
-router.post('/', (req, res) =>{
-    routeController.handleRequest(req, res,userController.create)
-})
+// router.post('/', (req, res) =>{
+//     routeController.handleRequest(req, res,userController.create)
+// })
 router.patch('/:id', (req, res) =>{
     routeController.handleRequest(req, res,userController.updated)
 })

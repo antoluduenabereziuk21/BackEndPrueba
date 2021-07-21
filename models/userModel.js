@@ -17,7 +17,8 @@ const  UserModel = sequelizeConnection.define(
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        fields: 'password'
       },
     name: {
         type: Sequelize.STRING,
